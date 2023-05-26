@@ -637,7 +637,7 @@ function Game() {
                  return (
                      <div className='containerBody'>
                         <div className='backToLang'><button onClick={() => handleBackToLang()} className='btnBackToLang'><FontAwesomeIcon icon={faDoorOpen} className='iconBackToLang'/></button></div>
-                        <p>{word}</p>
+                        {/* <p>{word}</p> */}
                         <div className='containerOnWords'>
             <div className='placeOnLetters'>
             {lettersOne.map((items, index) => (
