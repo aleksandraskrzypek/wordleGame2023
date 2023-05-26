@@ -104,10 +104,15 @@ function Game() {
     const handleCheckWord = () => {
         if (step === 1){
             for (var k = 0; k < Data.length; k++){
+                console.log(Data[k].word)
                 if (comparison === Data[k].word){
                     handleCheck()
+                    break;
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersOne(['','','','',''])
+                    setComparison()
+                    setCurrentIndex(0);
                     break;
                 }
             }
@@ -116,7 +121,10 @@ function Game() {
                 if (comparisonTwo === Data[l].word){
                     handleCheck()
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersTwo(['','','','',''])
+                    setComparisonTwo()
+                    setCurrentIndexTwo(0);
                     break;
                 }
             }
@@ -125,7 +133,10 @@ function Game() {
                 if (comparisonThree === Data[m].word){
                     handleCheck()
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersThree(['','','','',''])
+                    setComparisonThree()
+                    setCurrentIndexThree(0);
                     break;
                 }
             }
@@ -134,7 +145,10 @@ function Game() {
                 if (comparisonFour === Data[n].word){
                     handleCheck()
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersFour(['','','','',''])
+                    setComparisonFour()
+                    setCurrentIndexFour(0);
                     break;
                 }
             }
@@ -143,7 +157,10 @@ function Game() {
                 if (comparisonFive === Data[o].word){
                     handleCheck()
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersFive(['','','','',''])
+                    setComparisonFive()
+                    setCurrentIndexFive(0);
                     break;
                 }
             }
@@ -152,7 +169,10 @@ function Game() {
                 if (comparisonSix === Data[p].word){
                     handleCheck()
                 } else {
-                    alert('Your word not exist in our dictionary!');
+                    alert('Your word does not exist in our dictionary!');
+                    setLettersSix(['','','','',''])
+                    setComparisonSix()
+                    setCurrentIndexSix(0);
                     break;
                 }
             }
