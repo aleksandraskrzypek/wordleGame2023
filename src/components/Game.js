@@ -8,7 +8,7 @@ import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 function Game() {
     const [word, setWord] = useState()
     const [step, setStep] = useState(1)
-    const [route, setRoute] = useState(1)
+    const [route, setRoute] = useState(3)
 
     const [comparison, setComparison] = useState()
     const [comparisonTwo, setComparisonTwo] = useState()
@@ -328,7 +328,7 @@ function Game() {
 
 
   return (
-    <div>
+    <div className='bg'>
 
         {(() => {
              if(route === 1) {
@@ -430,8 +430,9 @@ function Game() {
              } else if (route ===3) {
                  return (
                  <div className='containerBody'>
-                    <h1>Hurra! You guess Word!</h1>
-                    <button onClick={() => handleDraw()} className='buttonDraw'>Draw Again</button>
+                    <h1 className='guess'>Hurra! You guess Word! Again?</h1>
+
+                    <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
                  </div>
                  )
          }
