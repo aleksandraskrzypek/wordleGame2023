@@ -8,7 +8,7 @@ import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 function Game() {
     const [word, setWord] = useState()
     const [step, setStep] = useState(1)
-    const [route, setRoute] = useState(3)
+    const [route, setRoute] = useState(1)
 
     const [comparison, setComparison] = useState()
     const [comparisonTwo, setComparisonTwo] = useState()
@@ -348,37 +348,115 @@ function Game() {
                         <div className='containerOnWords'>
             <div className='placeOnLetters'>
             {lettersOne.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexes.includes(index) ? 'highlighted' : ''} ${checkClicked && word && comparison.charAt(index) === word.charAt(index) ? 'highlighted-green' : 'highlighted-none'}`}
-            key={index}><p>{items}</p></div>
+            <div
+            className={`placeOnLetter ${
+              highlightedIndexes.includes(index) ? 'highlighted' : ''
+            } ${
+              checkClicked && word && comparison.charAt(index) === word.charAt(index)
+                ? 'highlighted-green'
+                : ''
+            } ${
+              checkClicked &&
+              word &&
+              comparison.charAt(index) !== word.charAt(index) &&
+              !word.includes(comparison.charAt(index))
+                ? 'highlighted-none'
+                : ''
+            }`}
+            key={index}
+          ><p>{items}</p></div>
             ))}
             </div> 
             <div className='placeOnLetters'>
             {lettersTwo.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexesTwo.includes(index) ? 'highlighted' : ''} ${checkClickedTwo && word && comparisonTwo.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''}`}
+            <div 
+            className={`placeOnLetter ${
+                highlightedIndexesTwo.includes(index) ? 'highlighted' : ''
+            } ${
+                checkClickedTwo && word && comparisonTwo.charAt(index) === word.charAt(index) 
+                ? 'highlighted-green' : ''
+            }${
+                checkClickedTwo &&
+                word &&
+                comparisonTwo.charAt(index) !== word.charAt(index) &&
+                !word.includes(comparisonTwo.charAt(index))
+                  ? 'highlighted-none'
+                  : ''
+            }`}
             key={index}><p>{items}</p></div>
             ))}
             </div> 
             <div className='placeOnLetters'>
             {lettersThree.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexesThree.includes(index) ? 'highlighted' : ''} ${checkClickedThree && word && comparisonThree.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''}`}
+            <div 
+            className={`placeOnLetter ${
+                highlightedIndexesThree.includes(index) ? 'highlighted' : ''
+            } ${
+                checkClickedThree && word && comparisonThree.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''
+            }${
+                checkClickedThree &&
+                word &&
+                comparisonThree.charAt(index) !== word.charAt(index) &&
+                !word.includes(comparisonThree.charAt(index))
+                  ? 'highlighted-none'
+                  : ''
+            
+            
+            }`}
             key={index}><p>{items}</p></div>
             ))}
             </div> 
             <div className='placeOnLetters'>
             {lettersFour.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexesFour.includes(index) ? 'highlighted' : ''} ${checkClickedFour && word && comparisonFour.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''}`}
+            <div 
+            className={`placeOnLetter ${
+                highlightedIndexesFour.includes(index) ? 'highlighted' : ''
+            } ${
+                checkClickedFour && word && comparisonFour.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''
+            }${
+                checkClickedFour &&
+                word &&
+                comparisonFour.charAt(index) !== word.charAt(index) &&
+                !word.includes(comparisonFour.charAt(index))
+                  ? 'highlighted-none'
+                  : ''
+            }`}
             key={index}><p>{items}</p></div>
             ))}
             </div> 
             <div className='placeOnLetters'>
             {lettersFive.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexesFive.includes(index) ? 'highlighted' : ''} ${checkClickedFive && word && comparisonFive.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''}`}
+            <div 
+            className={`placeOnLetter ${
+                highlightedIndexesFive.includes(index) ? 'highlighted' : ''
+            } ${
+                checkClickedFive && word && comparisonFive.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''
+            }${
+                checkClickedFive &&
+                word &&
+                comparisonFive.charAt(index) !== word.charAt(index) &&
+                !word.includes(comparisonFive.charAt(index))
+                  ? 'highlighted-none'
+                  : ''
+            }`}
             key={index}><p>{items}</p></div>
             ))}
             </div> 
             <div className='placeOnLetters'>
             {lettersSix.map((items, index) => (
-            <div className={`placeOnLetter ${highlightedIndexesSix.includes(index) ? 'highlighted' : ''} ${checkClickedSix && word && comparisonSix.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''}`}
+            <div 
+            className={`placeOnLetter ${
+                highlightedIndexesSix.includes(index) ? 'highlighted' : ''
+            } ${
+                checkClickedSix && word && comparisonSix.charAt(index) === word.charAt(index) ? 'highlighted-green' : ''
+            }${
+                checkClickedSix &&
+                word &&
+                comparisonSix.charAt(index) !== word.charAt(index) &&
+                !word.includes(comparisonSix.charAt(index))
+                  ? 'highlighted-none'
+                  : ''
+            }`}
             key={index}><p>{items}</p></div>
             ))}
             </div>
