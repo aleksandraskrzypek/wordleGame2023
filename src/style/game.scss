@@ -71,6 +71,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.rowZero{
+    display: flex;
+    justify-content: center;
+}
+
 .enter, .back{
     font-family: 'Montserrat', sans-serif;
     height: 50px;
@@ -120,4 +126,22 @@
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 20px;
     text-align: center;
+    padding: 15px;
+}
+
+.flags{
+    position: fixed;
+    top: 0;
+    background-color: rgb(220, 225, 237);
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnChangeLang{
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
 }

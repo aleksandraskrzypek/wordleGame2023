@@ -1,0 +1,8 @@
+[
+    {
+        "draw": "Draw",
+        "guess": "Hurra! You guess The Word! Again?",
+        "notGuess": "You didn't guess The Word. Try Again?",
+        "alert": "Your word does not exist in our dictionary!"
+    }
+]

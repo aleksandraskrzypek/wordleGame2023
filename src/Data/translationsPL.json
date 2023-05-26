@@ -1,0 +1,8 @@
+[
+    {
+        "draw": "Losuj",
+        "guess": "Hurra! Udało Ci się odgadnąć słowo! Jeszcze raz?",
+        "notGuess": "Nie udało Ci się odgadnąć słowa. Spróbuj ponownie!",
+        "alert": "Twoje słowo nie istnieje w naszym słowniku"
+    }
+]

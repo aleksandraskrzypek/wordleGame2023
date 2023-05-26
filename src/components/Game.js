@@ -1,11 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import '../style/game.scss'
-//import Data from '../Data/myData.json'
-import Data from '../Data/dataWordle.json'
+//import DataPL from '../Data/myData.json'
+import DataPL from '../Data/dataWordlePL.json'
+import DataENG from '../Data/dataWordle.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import Flag from 'react-world-flags'
+
+import transPL from '../Data/translationsPL.json'
+import transENG from '../Data/translationsENG.json'
 
 function Game() {
+    const [lang, setLang] = useState('eng')
+
     const [word, setWord] = useState()
     const [step, setStep] = useState(1)
     const [route, setRoute] = useState(1)
@@ -47,50 +54,55 @@ function Game() {
 
 
     const handleDraw = () => {
-        const i = Math.floor(Math.random() * Data.length)
-        setTimeout(() => {
-            setWord(Data[i].word)
+        if(lang === 'eng'){
+            const i = Math.floor(Math.random() * DataENG.length)
+            setTimeout(() => {
+                setWord(DataENG[i].word)
+            })
+        } else if (lang === 'pl'){
+            const i = Math.floor(Math.random() * DataPL.length)
+            setTimeout(() => {
+                setWord(DataPL[i].word)
+            })
 
             setRoute(2)
-            setStep(1)
-
-            setLettersOne(['','','','',''])
-            setLettersTwo(['','','','',''])
-            setLettersThree(['','','','',''])
-            setLettersFour(['','','','',''])
-            setLettersFive(['','','','',''])
-            setLettersSix(['','','','',''])
-
-            setCurrentIndex(0);
-            setCurrentIndexTwo(0);
-            setCurrentIndexThree(0);
-            setCurrentIndexFour(0);
-            setCurrentIndexFive(0);
-            setCurrentIndexSix(0);
-
-            setCheckClicked(false);
-            setCheckClickedTwo(false);
-            setCheckClickedThree(false);
-            setCheckClickedFour(false);
-            setCheckClickedFive(false);
-            setCheckClickedSix(false);
-
-            setHighlightedIndexes([]);
-            setHighlightedIndexesTwo([]);
-            setHighlightedIndexesThree([]);
-            setHighlightedIndexesFour([]);
-            setHighlightedIndexesFive([]);
-            setHighlightedIndexesSix([]);
-
-            setComparison()
-            setComparisonTwo()
-            setComparisonThree()
-            setComparisonFour()
-            setComparisonFive()
-            setComparisonSix()
-
-
-        })
+                setStep(1)
+    
+                setLettersOne(['','','','',''])
+                setLettersTwo(['','','','',''])
+                setLettersThree(['','','','',''])
+                setLettersFour(['','','','',''])
+                setLettersFive(['','','','',''])
+                setLettersSix(['','','','',''])
+    
+                setCurrentIndex(0);
+                setCurrentIndexTwo(0);
+                setCurrentIndexThree(0);
+                setCurrentIndexFour(0);
+                setCurrentIndexFive(0);
+                setCurrentIndexSix(0);
+    
+                setCheckClicked(false);
+                setCheckClickedTwo(false);
+                setCheckClickedThree(false);
+                setCheckClickedFour(false);
+                setCheckClickedFive(false);
+                setCheckClickedSix(false);
+    
+                setHighlightedIndexes([]);
+                setHighlightedIndexesTwo([]);
+                setHighlightedIndexesThree([]);
+                setHighlightedIndexesFour([]);
+                setHighlightedIndexesFive([]);
+                setHighlightedIndexesSix([]);
+    
+                setComparison()
+                setComparisonTwo()
+                setComparisonThree()
+                setComparisonFour()
+                setComparisonFive()
+                setComparisonSix()
+        }
     }
 
     useEffect (() => {
@@ -103,97 +115,194 @@ function Game() {
     },[lettersOne, lettersTwo, lettersThree, lettersFour, lettersFive, lettersSix])
 
     const handleCheckWord = () => {
-        if (step === 1){
-            var wordFound = false;
-            for (var k = 0; k < Data.length; k++){
-                if (comparison === Data[k].word){
-                    handleCheck()
-                    var wordFound = true;
-                    break;
+        if (lang === 'eng'){
+            if (step === 1){
+                var wordFound = false;
+                for (var k = 0; k < DataENG.length; k++){
+                    if (comparison === DataENG[k].word){
+                        handleCheck()
+                        var wordFound = true;
+                        break;
+                    }
+                }
+                if (!wordFound) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersOne(['','','','',''])
+                    setComparison()
+                    setCurrentIndex(0);
+                }
+            } else if (step === 2){
+                var wordFoundTwo = false;
+                for (var l = 0; l < DataENG.length; l++){
+                    if (comparisonTwo === DataENG[l].word){
+                        handleCheck()
+                        var wordFoundTwo = true;
+                        break;
+                    } 
+                }
+                if (!wordFoundTwo) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersTwo(['','','','',''])
+                    setComparisonTwo()
+                    setCurrentIndexTwo(0);
+                }
+            } else if (step === 3){
+                var wordFoundThree = false;
+                for (var m = 0; m < DataENG.length; m++){
+                    if (comparisonThree === DataENG[m].word){
+                        handleCheck()
+                        var wordFoundThree = true;
+                        break;
+                    }
+                }
+                if (!wordFoundThree) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersThree(['','','','',''])
+                    setComparisonThree()
+                    setCurrentIndexThree(0);
+                }
+            } else if (step === 4){
+                var wordFoundFour = false;
+                for (var n = 0; n < DataENG.length; n++){
+                    if (comparisonFour === DataENG[n].word){
+                        handleCheck()
+                        var wordFoundFour = true;
+                        break;
+                    }
+                }
+                if (!wordFoundFour) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersFour(['','','','',''])
+                    setComparisonFour()
+                    setCurrentIndexFour(0);
+                }
+            } else if (step === 5){
+                var wordFoundFive = false;
+                for (var o = 0; o < DataENG.length; o++){
+                    if (comparisonFive === DataENG[o].word){
+                        handleCheck()
+                        var wordFoundFive = true;
+                        break;
+                    } 
+                }
+                if (!wordFoundFive) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersFive(['','','','',''])
+                    setComparisonFive()
+                    setCurrentIndexFive(0);
+                }
+            } else if (step === 6){
+                var wordFoundSix = false;
+                for (var p = 0; p < DataENG.length; p++){
+                    if (comparisonSix === DataENG[p].word){
+                        handleCheck()
+                        var wordFoundSix = true;
+                        break;
+                    }  
+                }
+                if (!wordFoundSix) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersSix(['','','','',''])
+                    setComparisonSix()
+                    setCurrentIndexSix(0);
                 }
             }
-            if (!wordFound) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersOne(['','','','',''])
-                setComparison()
-                setCurrentIndex(0);
-            }
-        } else if (step === 2){
-            var wordFoundTwo = false;
-            for (var l = 0; l < Data.length; l++){
-                if (comparisonTwo === Data[l].word){
-                    handleCheck()
-                    var wordFoundTwo = true;
-                    break;
-                } 
-            }
-            if (!wordFoundTwo) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersTwo(['','','','',''])
-                setComparisonTwo()
-                setCurrentIndexTwo(0);
-            }
-        } else if (step === 3){
-            var wordFoundThree = false;
-            for (var m = 0; m < Data.length; m++){
-                if (comparisonThree === Data[m].word){
-                    handleCheck()
-                    var wordFoundThree = true;
-                    break;
+        } else if (lang === 'pl'){
+            if (step === 1){
+                var wordFound = false;
+                for (var k = 0; k < DataPL.length; k++){
+                    if (comparison === DataPL[k].word){
+                        handleCheck()
+                        var wordFound = true;
+                        break;
+                    }
                 }
-            }
-            if (!wordFoundThree) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersThree(['','','','',''])
-                setComparisonThree()
-                setCurrentIndexThree(0);
-            }
-        } else if (step === 4){
-            var wordFoundFour = false;
-            for (var n = 0; n < Data.length; n++){
-                if (comparisonFour === Data[n].word){
-                    handleCheck()
-                    var wordFoundFour = true;
-                    break;
+                if (!wordFound) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersOne(['','','','',''])
+                    setComparison()
+                    setCurrentIndex(0);
                 }
-            }
-            if (!wordFoundFour) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersFour(['','','','',''])
-                setComparisonFour()
-                setCurrentIndexFour(0);
-            }
-        } else if (step === 5){
-            var wordFoundFive = false;
-            for (var o = 0; o < Data.length; o++){
-                if (comparisonFive === Data[o].word){
-                    handleCheck()
-                    var wordFoundFive = true;
-                    break;
-                } 
-            }
-            if (!wordFoundFive) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersFive(['','','','',''])
-                setComparisonFive()
-                setCurrentIndexFive(0);
-            }
-        } else if (step === 6){
-            var wordFoundSix = false;
-            for (var p = 0; p < Data.length; p++){
-                if (comparisonSix === Data[p].word){
-                    handleCheck()
-                    var wordFoundSix = true;
-                    break;
-                }  
-            }
-            if (!wordFoundSix) {
-                alert('Your word does not exist in our dictionary!');
-                setLettersSix(['','','','',''])
-                setComparisonSix()
-                setCurrentIndexSix(0);
+            } else if (step === 2){
+                var wordFoundTwo = false;
+                for (var l = 0; l < DataPL.length; l++){
+                    if (comparisonTwo === DataPL[l].word){
+                        handleCheck()
+                        var wordFoundTwo = true;
+                        break;
+                    } 
+                }
+                if (!wordFoundTwo) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersTwo(['','','','',''])
+                    setComparisonTwo()
+                    setCurrentIndexTwo(0);
+                }
+            } else if (step === 3){
+                var wordFoundThree = false;
+                for (var m = 0; m < DataPL.length; m++){
+                    if (comparisonThree === DataPL[m].word){
+                        handleCheck()
+                        var wordFoundThree = true;
+                        break;
+                    }
+                }
+                if (!wordFoundThree) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersThree(['','','','',''])
+                    setComparisonThree()
+                    setCurrentIndexThree(0);
+                }
+            } else if (step === 4){
+                var wordFoundFour = false;
+                for (var n = 0; n < DataPL.length; n++){
+                    if (comparisonFour === DataPL[n].word){
+                        handleCheck()
+                        var wordFoundFour = true;
+                        break;
+                    }
+                }
+                if (!wordFoundFour) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersFour(['','','','',''])
+                    setComparisonFour()
+                    setCurrentIndexFour(0);
+                }
+            } else if (step === 5){
+                var wordFoundFive = false;
+                for (var o = 0; o < DataPL.length; o++){
+                    if (comparisonFive === DataPL[o].word){
+                        handleCheck()
+                        var wordFoundFive = true;
+                        break;
+                    } 
+                }
+                if (!wordFoundFive) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersFive(['','','','',''])
+                    setComparisonFive()
+                    setCurrentIndexFive(0);
+                }
+            } else if (step === 6){
+                var wordFoundSix = false;
+                for (var p = 0; p < DataPL.length; p++){
+                    if (comparisonSix === DataPL[p].word){
+                        handleCheck()
+                        var wordFoundSix = true;
+                        break;
+                    }  
+                }
+                if (!wordFoundSix) {
+                    alert(lang === 'pl' ? transPL[0].alert : transENG[0].alert);
+                    setLettersSix(['','','','',''])
+                    setComparisonSix()
+                    setCurrentIndexSix(0);
+                }
             }
         }
+
+
+        
         
     }
 
@@ -431,11 +540,11 @@ function Game() {
              if(route === 1) {
                  return (
                      <div className='containerBody'>
-                        {/* <h1 className='welcome'>Welcome in Wordle</h1>
-                        <h2 className='welcome'>Draw your Word</h2>
-                        <h3 className='welcome'>And have fun!</h3> */}
-                        <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
-                        {/* <p>{word}</p>  */}
+                        <div className='flags'>
+                            <button className='btnChangeLang' onClick={() =>setLang('pl')}><Flag code="POL" style={{ width: 'auto', height: '25px'}}/></button>
+                            <button className='btnChangeLang' onClick={() =>setLang('eng')}><Flag code="GBR" style={{ width: 'auto', height: '25px' }}/></button>
+                        </div>
+                        <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}</button>
                      </div>
                  )
              } else if (route ===2) {
@@ -563,6 +672,22 @@ function Game() {
                 {/* {Alfa.map((item) => (
                     <button onClick={() => handleLetter(item.letter)} className='letter'>{item.letter}</button>
                 ))} */}
+                {(() => {
+                    if(lang === "pl") {
+                        return (
+                <div className='rowZero'>
+                    <button className='letter' onClick={() => handleLetter("Ą")}>Ą</button>
+                    <button className='letter' onClick={() => handleLetter("Ć")}>Ć</button>
+                    <button className='letter' onClick={() => handleLetter("Ę")}>Ę</button>
+                    <button className='letter' onClick={() => handleLetter("Ł")}>Ł</button>
+                    <button className='letter' onClick={() => handleLetter("Ó")}>Ó</button>
+                    <button className='letter' onClick={() => handleLetter("Ś")}>Ś</button>
+                    <button className='letter' onClick={() => handleLetter("Ń")}>Ń</button>
+                    <button className='letter' onClick={() => handleLetter("Ź")}>Ź</button>
+                    <button className='letter' onClick={() => handleLetter("Ż")}>Ż</button>
+                </div>
+                        )}
+                    })()}
                 <div className='rowOne'>
                     <button className='letter' onClick={() => handleLetter("Q")}>Q</button>
                     <button className='letter' onClick={() => handleLetter("W")}>W</button>
@@ -605,16 +730,16 @@ function Game() {
              } else if (route ===3) {
                  return (
                  <div className='containerBody'>
-                    <h1 className='guess'>Hurra! You guess The Word! Again?</h1>
+                    <h1 className='guess'>{lang === 'pl' ? transPL[0].guess : transENG[0].guess}</h1>
 
-                    <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
+                    <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}</button>
                  </div>
                  )
          } else if (route === 4){
             return(
                 <div className='containerBody'>
-                    <h1 className='guess'>You didn't guess The Word. Try Again?</h1>
-                    <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
+                    <h1 className='guess'>{lang === 'pl' ? transPL[0].notGuess : transENG[0].notGuess}</h1>
+                    <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}</button>
                 </div>
             )
          }
