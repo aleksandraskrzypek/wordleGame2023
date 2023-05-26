@@ -108,6 +108,8 @@ function Game() {
                 if (comparison === Data[k].word){
                     handleCheck()
                     break;
+                } else if (comparison === word){
+                    setRoute(3)
                 } else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersOne(['','','','',''])
@@ -120,6 +122,8 @@ function Game() {
             for (var l = 0; l < Data.length; l++){
                 if (comparisonTwo === Data[l].word){
                     handleCheck()
+                } else if (comparisonTwo === word){
+                    setRoute(3)
                 } else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersTwo(['','','','',''])
@@ -132,6 +136,8 @@ function Game() {
             for (var m = 0; m < Data.length; m++){
                 if (comparisonThree === Data[m].word){
                     handleCheck()
+                }  else if (comparisonThree === word){
+                    setRoute(3)
                 } else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersThree(['','','','',''])
@@ -144,6 +150,8 @@ function Game() {
             for (var n = 0; n < Data.length; n++){
                 if (comparisonFour === Data[n].word){
                     handleCheck()
+                }  else if (comparisonFour === word){
+                    setRoute(3)
                 } else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersFour(['','','','',''])
@@ -156,7 +164,9 @@ function Game() {
             for (var o = 0; o < Data.length; o++){
                 if (comparisonFive === Data[o].word){
                     handleCheck()
-                } else {
+                } else if (comparisonFive === word){
+                    setRoute(3)
+                }  else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersFive(['','','','',''])
                     setComparisonFive()
@@ -168,6 +178,8 @@ function Game() {
             for (var p = 0; p < Data.length; p++){
                 if (comparisonSix === Data[p].word){
                     handleCheck()
+                }  else if (comparisonSix === word){
+                    setRoute(3)
                 } else {
                     alert('Your word does not exist in our dictionary!');
                     setLettersSix(['','','','',''])
