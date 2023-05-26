@@ -1,14 +1,114 @@
 .placeOnLetters{
     display: flex;
     flex-direction: row;
-    margin: 10px;
 }
 
+.containerOnWords{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
 .placeOnLetter{
-    border: 1px solid black;
-    width: 30px;
-    height: 30px;
+    background-color: rgb(251, 252, 255);
+    color: rgb(57, 62, 76);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid rgb(222, 225, 233);
+    border-radius: 4px;
+    margin: 3px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.placeOnLetter.highlighted {
+    color: white;
+    background-color: orange;
+    border: 1px solid rgba(161, 150, 150, 0);
+}
+  
+.placeOnLetter.highlighted-green {
+    color: white;
+    background-color: green;
+    border: 1px solid rgba(161, 150, 150, 0);
+}
+
+// .placeOnLetter.highlighted-none {
+//     color: white;
+//     background-color: rgb(164, 174, 196);
+//     border: 1px solid rgba(161, 150, 150, 0);
+// }
+
+.containerLetter{
+    margin-top: 20px;
+    //border: 1px solid black;
+}
+
+.letter{
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    width: 30px;
+    margin: 3px;
+    background-color: rgb(220, 225, 237);
+    transition: 0.5s;
+    cursor: pointer;
+    color: #414A5E;
+    font-weight: bold;
+}
+
+// .enter:hover, .back:hover, .letter:hover{
+//     background-color: rgb(203, 209, 226);
+// }
+
+.rowOne, .rowTwo, .rowThree{
+    display: flex;
+    justify-content: space-between;
+}
+.enter, .back{
+    font-family: 'Montserrat', sans-serif;
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(220, 225, 237);
+    transition: 0.5s;
+    margin: 3px;
+    cursor: pointer;
+    width: 50px;
+}
+
+.rowTwo .letter{
+    width: 34px;
+}
+
+.containerBody{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonDraw{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    height: 50px;
+    width: 150px;
+    border-radius: 4px;
+    color: #414A5E;
+    font-weight: bold;
+    background-color: rgb(220, 225, 237);
+}
+
+.welcome{
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
 }
