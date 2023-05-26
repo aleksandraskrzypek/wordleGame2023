@@ -101,6 +101,65 @@ function Game() {
         setComparisonSix(lettersSix.join(""))
     },[lettersOne, lettersTwo, lettersThree, lettersFour, lettersFive, lettersSix])
 
+    const handleCheckWord = () => {
+        if (step === 1){
+            for (var k = 0; k < Data.length; k++){
+                if (comparison === Data[k].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        } else if (step === 2){
+            for (var l = 0; l < Data.length; l++){
+                if (comparisonTwo === Data[l].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        } else if (step === 3){
+            for (var m = 0; m < Data.length; m++){
+                if (comparisonThree === Data[m].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        } else if (step === 4){
+            for (var n = 0; n < Data.length; n++){
+                if (comparisonFour === Data[n].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        } else if (step === 5){
+            for (var o = 0; o < Data.length; o++){
+                if (comparisonFive === Data[o].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        } else if (step === 6){
+            for (var p = 0; p < Data.length; p++){
+                if (comparisonSix === Data[p].word){
+                    handleCheck()
+                } else {
+                    alert('Your word not exist in our dictionary!');
+                    break;
+                }
+            }
+        }
+        
+    }
+
     const handleCheck = () => {
 
         if (step === 1 && currentIndex === 5){
@@ -499,7 +558,7 @@ function Game() {
                     <button className='letter' onClick={() => handleLetter("B")}>B</button>
                     <button className='letter' onClick={() => handleLetter("N")}>N</button>
                     <button className='letter' onClick={() => handleLetter("M")}>M</button>
-                    <button onClick={() => handleCheck()} className='enter'>Enter</button>
+                    <button onClick={() => handleCheckWord()} className='enter'>Enter</button>
                 </div>
             </div>
 
