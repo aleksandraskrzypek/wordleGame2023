@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import '../style/game.scss'
 import Data from '../Data/myData.json'
-import Alfa from '../Data/alfabet.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -215,6 +214,8 @@ function Game() {
 
             if (comparisonSix === word){
                 setRoute(3)
+            } else {
+                setRoute(4)
             }
         
             for (var i = 0; i < comparisonSix.length; i++) {
@@ -508,11 +509,18 @@ function Game() {
              } else if (route ===3) {
                  return (
                  <div className='containerBody'>
-                    <h1 className='guess'>Hurra! You guess Word! Again?</h1>
+                    <h1 className='guess'>Hurra! You guess The Word! Again?</h1>
 
                     <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
                  </div>
                  )
+         } else if (route === 4){
+            return(
+                <div className='containerBody'>
+                    <h1 className='guess'>You didn't guess The Word. Try Again?</h1>
+                    <button onClick={() => handleDraw()} className='buttonDraw'>Draw</button>
+                </div>
+            )
          }
          })()}
         
