@@ -4,7 +4,7 @@ import '../style/game.scss'
 import DataPL from '../Data/dataWordlePL.json'
 import DataENG from '../Data/dataWordle.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faDeleteLeft, faDoorOpen } from '@fortawesome/free-solid-svg-icons'
 import Flag from 'react-world-flags'
 
 import transPL from '../Data/translationsPL.json'
@@ -55,6 +55,10 @@ function Game() {
     const [lettersFive, setLettersFive] = useState(['','','','',''])
     const [lettersSix, setLettersSix] = useState(['','','','',''])
 
+
+    const handleBackToLang = () => {
+        setRoute(1)
+    }
 
     const handleDraw = () => {
         if(lang === 'eng'){
@@ -632,6 +636,7 @@ function Game() {
              } else if (route ===2) {
                  return (
                      <div className='containerBody'>
+                        <div className='backToLang'><button onClick={() => handleBackToLang()} className='btnBackToLang'><FontAwesomeIcon icon={faDoorOpen} className='iconBackToLang'/></button></div>
                         <p>{word}</p>
                         <div className='containerOnWords'>
             <div className='placeOnLetters'>
