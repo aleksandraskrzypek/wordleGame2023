@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import '../style/game.scss'
-import Data from '../Data/myData.json'
+//import Data from '../Data/myData.json'
+import Data from '../Data/dataWordle.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -103,90 +104,94 @@ function Game() {
 
     const handleCheckWord = () => {
         if (step === 1){
+            var wordFound = false;
             for (var k = 0; k < Data.length; k++){
-                console.log(Data[k].word)
                 if (comparison === Data[k].word){
                     handleCheck()
-                    break;
-                } else if (comparison === word){
-                    setRoute(3)
-                } else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersOne(['','','','',''])
-                    setComparison()
-                    setCurrentIndex(0);
+                    var wordFound = true;
                     break;
                 }
             }
+            if (!wordFound) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersOne(['','','','',''])
+                setComparison()
+                setCurrentIndex(0);
+            }
         } else if (step === 2){
+            var wordFoundTwo = false;
             for (var l = 0; l < Data.length; l++){
                 if (comparisonTwo === Data[l].word){
                     handleCheck()
-                } else if (comparisonTwo === word){
-                    setRoute(3)
-                } else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersTwo(['','','','',''])
-                    setComparisonTwo()
-                    setCurrentIndexTwo(0);
+                    var wordFoundTwo = true;
                     break;
-                }
+                } 
+            }
+            if (!wordFoundTwo) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersTwo(['','','','',''])
+                setComparisonTwo()
+                setCurrentIndexTwo(0);
             }
         } else if (step === 3){
+            var wordFoundThree = false;
             for (var m = 0; m < Data.length; m++){
                 if (comparisonThree === Data[m].word){
                     handleCheck()
-                }  else if (comparisonThree === word){
-                    setRoute(3)
-                } else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersThree(['','','','',''])
-                    setComparisonThree()
-                    setCurrentIndexThree(0);
+                    var wordFoundThree = true;
                     break;
                 }
             }
+            if (!wordFoundThree) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersThree(['','','','',''])
+                setComparisonThree()
+                setCurrentIndexThree(0);
+            }
         } else if (step === 4){
+            var wordFoundFour = false;
             for (var n = 0; n < Data.length; n++){
                 if (comparisonFour === Data[n].word){
                     handleCheck()
-                }  else if (comparisonFour === word){
-                    setRoute(3)
-                } else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersFour(['','','','',''])
-                    setComparisonFour()
-                    setCurrentIndexFour(0);
+                    var wordFoundFour = true;
                     break;
                 }
             }
+            if (!wordFoundFour) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersFour(['','','','',''])
+                setComparisonFour()
+                setCurrentIndexFour(0);
+            }
         } else if (step === 5){
+            var wordFoundFive = false;
             for (var o = 0; o < Data.length; o++){
                 if (comparisonFive === Data[o].word){
                     handleCheck()
-                } else if (comparisonFive === word){
-                    setRoute(3)
-                }  else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersFive(['','','','',''])
-                    setComparisonFive()
-                    setCurrentIndexFive(0);
+                    var wordFoundFive = true;
                     break;
-                }
+                } 
+            }
+            if (!wordFoundFive) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersFive(['','','','',''])
+                setComparisonFive()
+                setCurrentIndexFive(0);
             }
         } else if (step === 6){
+            var wordFoundSix = false;
             for (var p = 0; p < Data.length; p++){
                 if (comparisonSix === Data[p].word){
                     handleCheck()
-                }  else if (comparisonSix === word){
-                    setRoute(3)
-                } else {
-                    alert('Your word does not exist in our dictionary!');
-                    setLettersSix(['','','','',''])
-                    setComparisonSix()
-                    setCurrentIndexSix(0);
+                    var wordFoundSix = true;
                     break;
-                }
+                }  
+            }
+            if (!wordFoundSix) {
+                alert('Your word does not exist in our dictionary!');
+                setLettersSix(['','','','',''])
+                setComparisonSix()
+                setCurrentIndexSix(0);
             }
         }
         
