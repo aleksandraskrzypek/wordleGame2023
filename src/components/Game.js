@@ -817,14 +817,15 @@ function Game() {
              } else if (route ===3) {
                  return (
                  <div className='containerBody'>
+                    <h2 className='guess'>{word}</h2>
                     <h1 className='guess'>{lang === 'pl' ? transPL[0].guess : transENG[0].guess}</h1>
-
-                    <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}</button>
+                    <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}{}</button>
                  </div>
                  )
          } else if (route === 4){
             return(
                 <div className='containerBody'>
+                    <h2 className='guess'>{word}</h2>
                     <h1 className='guess'>{lang === 'pl' ? transPL[0].notGuess : transENG[0].notGuess}</h1>
                     <button onClick={() => handleDraw()} className='buttonDraw'>{lang === 'pl' ? transPL[0].draw : transENG[0].draw}</button>
                 </div>
